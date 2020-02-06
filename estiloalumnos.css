@@ -1,0 +1,36 @@
+body{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+input, textarea{
+    height: 24px;
+    border: solid 1px rgb(97, 154, 230);
+    border-radius: 5px;
+}
+textarea{
+    height: auto;
+}
+input[type=submit], 
+input[type=button]{
+    background-color: rgb(74, 137, 255);
+    color: rgba(255, 255, 255, 0.836);
+    text-transform: uppercase;
+    height: 30px;
+    width: auto;
+    font-weight: bolder;
+}
+input[type=submit]:hover, 
+input[type=button]:hover{
+    background-color: rgba(255, 255, 255, 0.123);
+    color: rgba(14, 14, 255, 0.747);
+}
+input[type=text]:valid, 
+textarea:valid,
+input[type=date]:valid{
+    background-color: rgb(110, 245, 139);
+}
+input[type=text]:invalid, 
+textarea:invalid,
+input[type=date]:invalid{
+    background-color: rgba(255, 146, 188, 0.849);
+}
