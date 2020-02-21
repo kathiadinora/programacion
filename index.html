@@ -18,12 +18,12 @@
             <div class="row row-cols-4 p-2">
                 <div class="col">
                     CONVERTIR:
-                    <select id="cboConvertir" class="form-control" onchange="elegir_opcion()">
+                    <select id="cboConvertir" class="form-control" onchange="seleccionar()">
                         <option value="seleccion">Seleccionar</option>
                         <option value="moneda">Moneda</option>
-                        <option value="longitud">Longitud</option>
-                        <option value="almacenamiento">Almacenamiento</option>
                         <option value="peso">Peso</option>
+                        <option value="almacenamiento">Almacenamiento</option>
+                        <option value="longitud">Longitud</option>
                     </select>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                     <input type="text" required="required" pattern="[0-9.]{1,}" placeholder="Cantidad" id="txtCantidadConversor" class="form-control">
                 </div>
                 <div class="col text-center">
-                    <p class="bg-success text-white" id="lblRespuesta">Respuesta: ?</p>
+                    <p class="bg-success text-white" id="lblRespuesta">Respuesta:</p>
                 </div>
             </div>
             <div class="row row-cols-2 p-2">
