@@ -4,56 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    
     <title>Conversores</title>
 </head>
 <body>
-    <form method="post" id="frmConversores">
-        <div class="container">
-            <div class="row row-cols-2">
-                <div class="col text-center bg-info text-white">
-                    APP CONVERSORES
+   <form method="get" id="frmSaludo">
+       <div class="container">
+           <div class="row row-cols-2 P-2">
+               <div class="col text-center bg-success text-white">
+                   SALUDO CON AJAX
                 </div>
-            </div>
-            <div class="row row-cols-4 p-2">
-                <div class="col">
-                    CONVERTIR:
-                    <select id="cboConvertir" class="form-control" onchange="seleccionar()">
-                        <option value="seleccion">Seleccionar</option>
-                        <option value="moneda">Moneda</option>
-                        <option value="peso">Peso</option>
-                        <option value="almacenamiento">Almacenamiento</option>
-                        <option value="longitud">Longitud</option>
+           </div>
+           <div class="row row-cols-4 p-2">
+               <div class="col text-center">
+                   <input id="txtNombre" class="form-control" type="text" placeholder="Nombre" required="required">
+                </div>
+               <div class="col text-center">
+                   <span class="text-center bg-primary text-white" id="lblSaludo">Saludando...</span>
+                </div>
+           </div>
 
-                    </select>
-                </div>
-            </div>
-            <div class="row row-cols-4 p-2">
-                <div class="col">
-                    DE:
-                    <select id="cboDe" class="form-control">
-                    </select>
-                </div>
-                <div class="col">
-                    A:
-                    <select id="cboA" class="form-control">
-                    </select>
-                </div>
-            </div> 
-            <div class="row row-cols-4 p-2">
-                <div class="col text-center">
-                    <input type="text" required="required" pattern="[0-9.]{1,}" placeholder="Cantidad" id="txtCantidadConversor" class="form-control">
-                </div>
-                <div class="col text-center">
-                    <p class="bg-success text-white" id="lblRespuesta">Respuesta:</p>
-                </div>
-            </div>
-            <div class="row row-cols-2 p-2">
-                    <input type="submit" id="btnConvertir" value="Convertir" class="btn btn-primary">
-                </div>
-            </div>
-        </div>
-    </form>
-    <script src="app.js"></script>
+           <div class="row row-cols-2">
+               <div class="col text-center">
+                <input type="submit" value="Saludar" class="btn btn-primary">
+       </div>
+    </div>
+</div>
+</form>
+<script src="app.js"></script>
 </body>
 </html>
