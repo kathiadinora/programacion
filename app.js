@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", e=>{
             a = document.querySelector("#cboA").value,
             cantidad = document.querySelector("#txtCantidadConversor").value,
             opcion = document.getElementById('cboConvertir');
-  
+
+            
         let monedas = {
             "dolar":1,
             "colones":8.75,
