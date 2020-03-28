@@ -1,6 +1,7 @@
-
-var $ = el => document.querySelector(el);
-document.addEventListener("DOMContentLoaded",event=>{
+function init(){
+    var $ = el => {
+        return el.match(/^#/) ? document.querySelector(el) : document.querySelectorAll(el);
+    }
     let mostrarVista = $("[class*='mostrar-alumno']");
     mostrardocente= $("[class*='mostrar-docente']");
     mostrarVista.addEventListener('click',e=>{
