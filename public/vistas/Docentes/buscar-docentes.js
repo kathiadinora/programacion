@@ -1,24 +1,24 @@
-export function modulo(){
+export function modulo() {
     var $ = el => document.querySelector(el),
         frmBuscarDocentes = $("#txtBuscarDocente");
-    frmBuscarDocentes.addEventListener('keyup', e=>{
+    frmBuscarDocentes.addEventListener('keyup', e => {
         traerDatos(frmBuscarDocentes.value);
     });
-    let modificarDocente = (docente)=>{
+    let modificarDocente = (docente) => {
         $("#frm-docentes").dataset.accion = 'modificar';
-        $("#frm-docentes").dataset.iddocente = docente.ideDocente;
+        $("#frm-docentes").dataset.iddocente = docente.idDocente;
         $("#txtCodigoDocente").value = docente.codigo;
         $("#txtNombreDocente").value = docente.nombre;
         $("#txtDireccionDocente").value = docente.direccion;
         $("#txtTelefonoDocente").value = docente.telefono;
     };
-    let eliminarDocente = (ideDocente)=>{
-        fetch(`private/Modulos/docentes/procesos.php?proceso=eliminarDocente&docente=${ideDocente}`).then(resp=>resp.json()).then(resp=>{
+    let eliminarDocente = (idDocente) => {
+        fetch(`private/modulos/docentes/procesos.php?proceso=eliminarDocente&docente=${idDocente}`).then(resp => resp.json()).then(resp => {
             traerDatos('');
         });
     };
-    let traerDatos = (valor)=>{
-        fetch(`private/Modulos/docentes/procesos.php?proceso=buscarDocente&docente=${valor}`).then(resp=>resp.json()).then(resp=>{
+    let traerDatos = (valor) => {
+        fetch(`private/modulos/docentes/procesos.php?proceso=buscarDocente&docente=${valor}`).then(resp => resp.json()).then(resp => {
             let filas = '';
             resp.forEach(docente => {
                 filas += `
@@ -34,11 +34,16 @@ export function modulo(){
                 `;
             });
             $("#tbl-buscar-docentes > tbody").innerHTML = filas;
-            $("#tbl-buscar-docentes > tbody").addEventListener("click",e=>{
-                if( e.srcElement.parentNode.dataset.docente==null ){
-                    eliminarDocente( e.srcElement.parentNode.parentNode.dataset.iddocente );
+            $("#tbl-buscar-docentes > tbody").addEventListener("click", e => {
+                if (e.srcElement.parentNode.dataset.docente == null) {
+
+                    let confirmacion = confirm(`¿Seguro que quiere eliminar el registro?`)
+
+                    if(confirmacion == true){
+                    eliminarDocente(e.srcElement.parentNode.parentNode.dataset.iddocente);
+                    }
                 } else {
-                    modificarDocente( JSON.parse(e.srcElement.parentNode.dataset.docente) );
+                    modificarDocente(JSON.parse(e.srcElement.parentNode.dataset.docente));
                 }
             });
         });
