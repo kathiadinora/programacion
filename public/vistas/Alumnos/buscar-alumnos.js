@@ -11,6 +11,7 @@ export function modulo(){
         $("#txtNombreAlumno").value = alumno.nombre;
         $("#txtDireccionAlumno").value = alumno.direccion;
         $("#txtTelefonoAlumno").value = alumno.telefono;
+        $("#txtNitAlumno").value = alumno.nit;
     };
     let eliminarAlumno = (idAlumno)=>{
         fetch(`private/Modulos/alumnos/procesos.php?proceso=eliminarAlumno&alumno=${idAlumno}`).then(resp=>resp.json()).then(resp=>{
@@ -27,6 +28,7 @@ export function modulo(){
                         <td>${alumno.nombre}</td>
                         <td>${alumno.direccion}</td>
                         <td>${alumno.telefono}</td>
+                        <td>${alumno.nit}</td>
                         <td>
                             <input type="button" class="btn btn-outline-danger text-white" value="del">
                         </td>
