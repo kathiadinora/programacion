@@ -36,12 +36,11 @@ class alumno{
         if( $this->respuesta['msg']==='correcto' ){
             if( $this->datos['accion']==='nuevo' ){
                 $this->db->consultas('
-                    INSERT INTO alumnos (codigo,nombre,direccion,telefono,nit) VALUES(
+                    INSERT INTO alumnos (codigo,nombre,direccion,telefono) VALUES(
                         "'. $this->datos['codigo'] .'",
                         "'. $this->datos['nombre'] .'",
                         "'. $this->datos['direccion'] .'",
-                        "'. $this->datos['telefono'] .'",
-                        "'. $this->datos['nit'] .'"
+                        "'. $this->datos['telefono'] .'"
                     )
                 ');
                 $this->respuesta['msg'] = 'Registro insertado correctamente';
@@ -51,8 +50,7 @@ class alumno{
                         codigo     = "'. $this->datos['codigo'] .'",
                         nombre     = "'. $this->datos['nombre'] .'",
                         direccion  = "'. $this->datos['direccion'] .'",
-                        telefono   = "'. $this->datos['telefono'] .'",
-                        nit   = "'. $this->datos['nit'] .'"
+                        telefono   = "'. $this->datos['telefono'] .'"
                     WHERE idAlumno = "'. $this->datos['idAlumno'] .'"
                 ');
                 $this->respuesta['msg'] = 'Registro actualizado correctamente';
@@ -61,7 +59,7 @@ class alumno{
     }
     public function buscarAlumno($valor=''){
         $this->db->consultas('
-            select alumnos.idAlumno, alumnos.codigo, alumnos.nombre, alumnos.direccion, alumnos.telefono, alumnos.nit
+            select alumnos.idAlumno, alumnos.codigo, alumnos.nombre, alumnos.direccion, alumnos.telefono
             from alumnos
             where alumnos.codigo like "%'.$valor.'%" or alumnos.nombre like "%'.$valor.'%"
         ');
